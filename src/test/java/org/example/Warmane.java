@@ -41,10 +41,11 @@ public class Warmane {
         realmMenuClick.sendKeys(Keys.COMMAND);
         typeRealmName.sendKeys("Icecrown" + Keys.ENTER);
 
-        WebElement typeCharName = driver.findElement(By.id("characterselector_title"));
+        WebElement typeCharName = driver.findElement(By.id("characterselector_titleText"));
         WebElement charMenuClick = driver.findElement(By.id("characterselector_msdd"));
         actionProvider.click(charMenuClick).build().perform();
         charMenuClick.sendKeys(Keys.COMMAND);
         typeCharName.sendKeys("Charmdestr" + Keys.ENTER);
+
     }
 }
