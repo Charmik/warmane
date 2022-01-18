@@ -2,9 +2,11 @@ package org.example;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.v96.indexeddb.model.Key;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -32,14 +34,10 @@ public class Warmane {
 //        actionProvider.click(pushLoginButton);
 //        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(6000));
         driver.get("https://www.warmane.com/account/trade");
-        driver.getWindowHandle();
-        WebElement selectElement = driver.findElement(By.id("realmselector"));
+        WebElement typeRealmName = driver.findElement(By.id("realmselector_titleText"));
         WebElement realmMenuClick = driver.findElement(By.id("realmselector_msdd"));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         actionProvider.click(realmMenuClick).build().perform();
-        Select selectObject = new Select(selectElement);
-////      selectObject.selectByVisibleText("Frostwolf");
-        selectObject.selectByIndex(1);
-
+        realmMenuClick.sendKeys(Keys.COMMAND);
+        typeRealmName.sendKeys("Frostwolf" + Keys.ENTER);
     }
 }
