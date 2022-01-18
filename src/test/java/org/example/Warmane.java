@@ -6,11 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.v96.indexeddb.model.Key;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
-
-import java.time.Duration;
 
 public class Warmane {
     public static void main(String[] args) {
@@ -46,6 +42,12 @@ public class Warmane {
         actionProvider.click(charMenuClick).build().perform();
         charMenuClick.sendKeys(Keys.COMMAND);
         typeCharName.sendKeys("Charmdestr" + Keys.ENTER);
+
+        WebElement typeServiceName = driver.findElement(By.id("serviceselector_titleText"));
+        WebElement ServiceMenuClick = driver.findElement(By.id("serviceselector_msdd"));
+        actionProvider.click(ServiceMenuClick).build().perform();
+        ServiceMenuClick.sendKeys(Keys.COMMAND);
+        typeServiceName.sendKeys("Item Trade" + Keys.ENTER);
 
     }
 }
