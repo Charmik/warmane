@@ -34,10 +34,17 @@ public class Warmane {
 //        actionProvider.click(pushLoginButton);
 //        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(6000));
         driver.get("https://www.warmane.com/account/trade");
+
         WebElement typeRealmName = driver.findElement(By.id("realmselector_titleText"));
         WebElement realmMenuClick = driver.findElement(By.id("realmselector_msdd"));
         actionProvider.click(realmMenuClick).build().perform();
         realmMenuClick.sendKeys(Keys.COMMAND);
-        typeRealmName.sendKeys("Frostwolf" + Keys.ENTER);
+        typeRealmName.sendKeys("Icecrown" + Keys.ENTER);
+
+        WebElement typeCharName = driver.findElement(By.id("characterselector_title"));
+        WebElement charMenuClick = driver.findElement(By.id("characterselector_msdd"));
+        actionProvider.click(charMenuClick).build().perform();
+        charMenuClick.sendKeys(Keys.COMMAND);
+        typeCharName.sendKeys("Charmdestr" + Keys.ENTER);
     }
 }
